@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Generated Image Detector</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 500px;
+            margin: 80px auto;
+            background-color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        input[type="file"] {
+            margin: 25px 0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #preview {
+            display: none;
+            max-width: 100%;
+            max-height: 250px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>AI-Generated Image Detector</h1>
+
+        <p>
+            Upload an image to check whether it is
+            REAL or AI-GENERATED (FAKE).
+        </p>
+
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+
+            <input
+                type="file"
+                name="image"
+                accept="image/*"
+                required
+                onchange="previewImage(event)"
+            >
+
+            <br>
+
+            <img id="preview" alt="Image Preview">
+
+            <br>
+
+            <button type="submit">
+                Analyze Image
+            </button>
+
+        </form>
+
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const preview = document.getElementById("preview");
+
+            preview.src = URL.createObjectURL(
+                event.target.files[0]
+            );
+
+            preview.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

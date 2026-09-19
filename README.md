@@ -1,0 +1,2 @@
+# CIFAKE-Image-Classification-and-Explainable-Identification-of-AI-Generated-Synthetic-Images
+**CIFAKE** is an AI-based image classification system that detects whether an image is **real or AI-generated**. It uses deep learning techniques to identify visual patterns in synthetic images and applies **Explainable AI (XAI)** to show the regions influencing the model's prediction. The project aims to support 
